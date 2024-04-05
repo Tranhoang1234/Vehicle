@@ -38,7 +38,7 @@ public class UserController {
     @GetMapping("/user")
     public String indexUser(Model model) {
         model.addAttribute("users", userRepository.findAll());
-        return "user/index";
+        return "user/home";
     }
 
     @GetMapping("/login")
@@ -72,7 +72,7 @@ public class UserController {
     @GetMapping("/user/reservation")
     public String reservation(Model model) {
         model.addAttribute("reservations", reservationRepository.findAllByUser_Id(userId));
-        return "user/reservation/list-reservation";
+        return "user/reservation-list";
     }
 
     @GetMapping("/user/reservation/form-create-reservation")
@@ -80,7 +80,7 @@ public class UserController {
         ReservationDto reservationDto = new ReservationDto();
         model.addAttribute("reservation", reservationDto);
         model.addAttribute("vehicles", vehicleRepository.findAll());
-        return "user/reservation/reservation-create";
+        return "user/create-reservation";
     }
 
     @PostMapping("/user/reservation/save")
@@ -107,7 +107,7 @@ public class UserController {
     @GetMapping("/user/comment")
     public String indexComment(Model model) {
         model.addAttribute("comments", commentRepository.findAll());
-        return "user/comment/list-comment";
+        return "user/comment-list";
     }
 
     @GetMapping("/user/comment/form-create-comment")
@@ -116,7 +116,7 @@ public class UserController {
         model.addAttribute("comment", comment);
         model.addAttribute("users", userRepository.findAll());
         model.addAttribute("vehicles", vehicleRepository.findAll());
-        return "user/comment/comment-create";
+        return "user/create-comment";
     }
 
     @PostMapping("/user/comment/save")

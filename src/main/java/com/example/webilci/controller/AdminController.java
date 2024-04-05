@@ -15,7 +15,6 @@ public class AdminController {
 
     private final AdminRepository adminRepository;
     private final VehicleRepository vehicleRepository;
-    private int userId = 0;
 
     public AdminController(AdminRepository adminRepository, VehicleRepository vehicleRepository) {
         this.adminRepository = adminRepository;
@@ -24,7 +23,7 @@ public class AdminController {
 
     @GetMapping("/admin/login")
     public String login() {
-        return "login";
+        return "signin";
     }
 
     @PostMapping("/admin/login/try")
@@ -35,7 +34,6 @@ public class AdminController {
         Admin admin = adminRepository.findByEmailAndPassword(email, password);
         if (admin != null) {
             session.setAttribute("admin", admin);
-            this.userId = admin.getId();
             return "redirect:/admin";
         }
         return "login";
@@ -43,7 +41,7 @@ public class AdminController {
 
     @GetMapping("/admin")
     public String index(Model model) {
-        return "admin/index";
+        return "admin/home";
     }
 
 
