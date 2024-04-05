@@ -27,7 +27,7 @@ public class AdminVehicleController {
     @GetMapping("/admin/vehicle")
     public String vehicles(Model model) {
         model.addAttribute("vehicles", vehicleRepository.findAll());
-        return "admin/list-vehicle";
+        return "admin/vehicle-list";
     }
 
     @GetMapping("/admin/vehicle/form-create-vehicle")
@@ -36,7 +36,7 @@ public class AdminVehicleController {
         model.addAttribute("vehicle",vehicleDto);
         model.addAttribute("users", userRepository.findAllByRole("SALES"));
         model.addAttribute("types", vehicleTypeRepository.findAll());
-        return "admin/vehicle-create";
+        return "admin/create-vehicle";
     }
 
     @PostMapping("/admin/vehicle/save")
@@ -74,7 +74,7 @@ public class AdminVehicleController {
         vehicleDto.setUserId(vehicle.getSales().getId());
         vehicleDto.setFullName(vehicle.getSales().getFullName());
         model.addAttribute("vehicle",vehicleDto);
-        return "admin/vehicle-update";
+        return "admin/update-vehicle";
     }
 
     @PostMapping("/admin/vehicle/update")

@@ -14,7 +14,9 @@
       <configuration>
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
-        <datasource-mapping />
+        <datasource-mapping>
+          <factory-entry name="webilci" value="bce535b4-983d-4b1d-9acc-9c1ef279111a" />
+        </datasource-mapping>
         <naming-strategy-map />
       </configuration>
     </facet>
