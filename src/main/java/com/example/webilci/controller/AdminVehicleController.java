@@ -48,6 +48,7 @@ public class AdminVehicleController {
         vehicle.setCylinder(vehicleDto.getCylinder());
         vehicle.setPrice(vehicleDto.getPrice());
         vehicle.setWeight(vehicleDto.getWeight());
+        vehicle.setLength(vehicleDto.getLength());
         vehicle.setName(vehicleDto.getName());
         vehicle.setDoorNumbers(vehicleDto.getDoorNumbers());
         vehicle.setVehicleType(vehicleType);
@@ -66,6 +67,7 @@ public class AdminVehicleController {
         vehicleDto.setColor(vehicle.getColor());
         vehicleDto.setCylinder(vehicle.getCylinder());
         vehicleDto.setPrice(vehicle.getPrice());
+        vehicleDto.setLength(vehicle.getLength());
         vehicleDto.setWeight(vehicle.getWeight());
         vehicleDto.setName(vehicle.getName());
         vehicleDto.setDoorNumbers(vehicle.getDoorNumbers());
@@ -86,6 +88,7 @@ public class AdminVehicleController {
         vehicle.setCylinder(vehicleDto.getCylinder());
         vehicle.setPrice(vehicleDto.getPrice());
         vehicle.setWeight(vehicleDto.getWeight());
+        vehicle.setLength(vehicleDto.getLength());
         vehicle.setName(vehicleDto.getName());
         vehicle.setDoorNumbers(vehicleDto.getDoorNumbers());
         vehicle.setVehicleType(vehicleType);
