@@ -12,7 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/admin/vehicle")
+@RequestMapping()
 public class AdminVehicleController {
     private final VehicleTypeRepository vehicleTypeRepository;
     private final VehicleRepository vehicleRepository;

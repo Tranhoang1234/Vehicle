@@ -185,7 +185,7 @@ CREATE TABLE `vehicle` (
 
 LOCK TABLES `vehicle` WRITE;
 /*!40000 ALTER TABLE `vehicle` DISABLE KEYS */;
-INSERT INTO `vehicle` VALUES (1,'yellow',NULL,4,'2024-04-05',50,'Mitsubishi',500000,500,NULL,2,1),(2,'red',1,NULL,'2024-04-05',NULL,'Yamaha',50000,60,NULL,1,1),(3,'black',NULL,4,'2024-04-05',30,'Vinfast',600000,800,NULL,2,1);
+INSERT INTO `vehicle` VALUES (1,'yellow',NULL,4,'2024-04-05',50,'Mitsubishi',500000,500,1,2,1),(2,'red',1,NULL,'2024-04-05',NULL,'Yamaha',50000,60,1,1,1),(3,'black',NULL,4,'2024-04-05',30,'Vinfast',600000,800,1,2,1);
 /*!40000 ALTER TABLE `vehicle` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -204,7 +204,7 @@ CREATE TABLE `vehicle_type` (
   PRIMARY KEY (`id`),
   KEY `FKpl25tdffv6kk78ot886v2h0as` (`update_by`),
   CONSTRAINT `FKpl25tdffv6kk78ot886v2h0as` FOREIGN KEY (`update_by`) REFERENCES `admin` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -213,7 +213,7 @@ CREATE TABLE `vehicle_type` (
 
 LOCK TABLES `vehicle_type` WRITE;
 /*!40000 ALTER TABLE `vehicle_type` DISABLE KEYS */;
-INSERT INTO `vehicle_type` VALUES (1,'2024-04-05','2 wheels',1),(2,'2024-04-05','4 wheels',1);
+INSERT INTO `vehicle_type` VALUES (1,'2024-04-05','Truck',1),(2,'2024-04-05','Car',1),(3,'2024-04-05','Moto',1),(4,'2024-04-05','Scooter',1);
 /*!40000 ALTER TABLE `vehicle_type` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -234,4 +234,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-05 17:10:41
+-- Dump completed on 2024-04-16 12:40:23

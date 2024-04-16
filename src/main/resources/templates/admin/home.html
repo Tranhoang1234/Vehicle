@@ -53,6 +53,66 @@
 	<div class="header">
 		<h1>Admin Dashboard</h1>
 	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<section class="custom-border">
+				<h3><b>Agences</b> <span th:text="${agencyCount}"></span></h3>
+			</section>
+		</div>
+
+		<div class="col-md-4">
+			<section class="custom-border">
+				<h3><b>Voitures</b> <span th:text="${carCount}"></span></h3>
+			</section>
+		</div>
+
+		<div class="col-md-4">
+			<section class="custom-border">
+				<h3><b>Camions</b> <span th:text="${truckCount}"></span></h3>
+			</section>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-4">
+			<section class="custom-border">
+				<h3><b>Motos</b> <span th:text="${motorcycleCount}"></span></h3>
+			</section>
+		</div>
+
+		<div class="col-md-4">
+			<section class="custom-border">
+				<h3><b>Clients</b> <span th:text="${userCount}"></span></h3>
+			</section>
+		</div>
+
+		<div class="col-md-4">
+			<section class="custom-border">
+				<h3><b>Reservations</b> <span th:text="${reservationCount}"></span></h3>
+			</section>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-4">
+			<section class="custom-border">
+				<h3><b>Quatre roues</b> <span th:text="${total2Wheels}"></span> €</h3>
+			</section>
+		</div>
+
+		<div class="col-md-4">
+			<section class="custom-border">
+				<h3><b>Deux roues</b> <span th:text="${total4Wheels}"></span> €</h3>
+			</section>
+		</div>
+
+		<div class="col-md-4">
+			<section class="custom-border">
+				<h3><b>Total</b> <span th:text="${total}"></span> €</h3>
+			</section>
+		</div>
+	</div>
+
 	<div class="menu">
 		<a th:href="@{/admin/vehicle}">Vehicle</a>
 	</div>
