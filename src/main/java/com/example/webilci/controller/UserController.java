@@ -136,6 +136,6 @@ public class UserController {
     @GetMapping("/user/comment/delete/{id}")
     public String delete(@PathVariable("id") int id) {
         commentRepository.deleteById(id);
-        return "redirect:/user/comment/";
+        return "redirect:/user/comment";
     }
 }

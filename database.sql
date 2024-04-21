@@ -105,7 +105,7 @@ CREATE TABLE `reservation` (
   CONSTRAINT `FKm4oimk0l1757o9pwavorj6ljg` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
   CONSTRAINT `FKrm327sr0rb11mme0kbsm37od5` FOREIGN KEY (`vehicle_id`) REFERENCES `vehicle` (`id`),
   CONSTRAINT `FKrok1byw2jk56w5x1vqg9fy5pk` FOREIGN KEY (`last_updated_by`) REFERENCES `admin` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -114,6 +114,7 @@ CREATE TABLE `reservation` (
 
 LOCK TABLES `reservation` WRITE;
 /*!40000 ALTER TABLE `reservation` DISABLE KEYS */;
+INSERT INTO `reservation` VALUES (1,NULL,'2024-04-27','2024-04-18',45000,NULL,2,2,NULL);
 /*!40000 ALTER TABLE `reservation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -185,7 +186,7 @@ CREATE TABLE `vehicle` (
 
 LOCK TABLES `vehicle` WRITE;
 /*!40000 ALTER TABLE `vehicle` DISABLE KEYS */;
-INSERT INTO `vehicle` VALUES (1,'yellow',NULL,4,'2024-04-05',50,'Mitsubishi',500000,500,1,2,1),(2,'red',1,NULL,'2024-04-05',NULL,'Yamaha',50000,60,1,1,1),(3,'black',NULL,4,'2024-04-05',30,'Vinfast',600000,800,1,2,1);
+INSERT INTO `vehicle` VALUES (1,'yellow',12,4,'2024-04-05',50,'Mitsubishi',500000,500,1,2,1),(2,'red',1,NULL,'2024-04-05',NULL,'Yamaha',50000,60,1,1,1),(3,'black',1,4,'2024-04-05',30,'Vinfast',600000,800,1,2,1);
 /*!40000 ALTER TABLE `vehicle` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -234,4 +235,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-16 12:40:23
+-- Dump completed on 2024-04-21 22:46:20

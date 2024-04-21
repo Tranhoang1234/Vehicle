@@ -29,7 +29,7 @@
             <td th:text="${comment.user.fullName}"></td>
             <td th:text="${comment.vehicle.name}"></td>
             <td th:text="${comment.content}"></td>
-            <td th:text="${#dates.format(comment.commentDate, 'dd-MM-yyyy HH:mm')}"></td>
+            <td th:text="${comment.commentDate}"></td>
             <td>
                 <a th:href="@{/user/comment/delete/{id}(id=${comment.id})}" class="btn btn-danger">Delete</a>
             </td>
