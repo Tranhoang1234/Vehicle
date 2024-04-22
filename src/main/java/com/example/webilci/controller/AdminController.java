@@ -1,12 +1,10 @@
 package com.example.webilci.controller;
 
 import com.example.webilci.entity.Admin;
+import com.example.webilci.entity.Agency;
 import com.example.webilci.entity.User;
-import com.example.webilci.payloads.dto.UserDTO;
-import com.example.webilci.repository.AdminRepository;
-import com.example.webilci.repository.ReservationRepository;
-import com.example.webilci.repository.UserRepository;
-import com.example.webilci.repository.VehicleRepository;
+import com.example.webilci.payloads.dto.AgencyDTO;
+import com.example.webilci.repository.*;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,12 +23,14 @@ public class AdminController {
     private final UserRepository userRepository;
     private final ReservationRepository reservationRepository;
     private final VehicleRepository vehicleRepository;
+    private final AgencyRepository agencyRepository;
 
-    public AdminController(AdminRepository adminRepository, UserRepository userRepository, ReservationRepository reservationRepository, VehicleRepository vehicleRepository) {
+    public AdminController(AdminRepository adminRepository, UserRepository userRepository, ReservationRepository reservationRepository, VehicleRepository vehicleRepository, AgencyRepository agencyRepository) {
         this.adminRepository = adminRepository;
         this.userRepository = userRepository;
         this.reservationRepository = reservationRepository;
         this.vehicleRepository = vehicleRepository;
+        this.agencyRepository = agencyRepository;
     }
 
     @GetMapping("/admin/login")
@@ -79,20 +79,18 @@ public class AdminController {
         model.addAttribute("twoWheelPercent", twoWheelPercent);
 
         Long count = vehicleRepository.count();
-        List<UserDTO> userDTOS = new ArrayList<>();
-        List<User> users = userRepository.findAllByRole("SALES");
-        for(User user : users) {
-            Integer countVehicle = vehicleRepository.countVehiclesByUserId(user.getId());
+        List<AgencyDTO> agencyDTOS = new ArrayList<>();
+        List<Agency> agencies = agencyRepository.findAll();
+        for(Agency agency : agencies) {
+            Integer countVehicle = vehicleRepository.countVehiclesByAgencyId(agency.getId());
             double percent = Double.parseDouble(decimalFormat.format((double) countVehicle / count * 100));
-            UserDTO userDTO = new UserDTO();
-            userDTO.setId(user.getId());
-            userDTO.setName(user.getFullName());
-            userDTO.setPercent(percent);
-            userDTOS.add(userDTO);
+            AgencyDTO agencyDTO = new AgencyDTO();
+            agencyDTO.setId(agency.getId());
+            agencyDTO.setName(agency.getName());
+            agencyDTO.setPercent(percent);
+            agencyDTOS.add(agencyDTO);
         }
-
-        model.addAttribute("users", userDTOS);
-
+        model.addAttribute("agencies", agencyDTOS);
         return "admin/home";
     }
 }

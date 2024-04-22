@@ -46,6 +46,33 @@ INSERT INTO `admin` VALUES (1,'admin@gmail.com','admin','2024-04-05','abc',NULL)
 UNLOCK TABLES;
 
 --
+-- Table structure for table `agency`
+--
+
+DROP TABLE IF EXISTS `agency`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `agency` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `address` varchar(255) DEFAULT NULL,
+  `last_updated_date` date DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `agency`
+--
+
+LOCK TABLES `agency` WRITE;
+/*!40000 ALTER TABLE `agency` DISABLE KEYS */;
+INSERT INTO `agency` VALUES (1,'Nantes','2024-04-22','Nantes','0987654321'),(2,'Paris ','2024-04-22','Paris ','0987654332');
+/*!40000 ALTER TABLE `agency` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `comment`
 --
 
@@ -170,12 +197,15 @@ CREATE TABLE `vehicle` (
   `sales_id` int DEFAULT NULL,
   `vehicle_type_id` int DEFAULT NULL,
   `update_by` int DEFAULT NULL,
+  `agency_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FKn8ieqxvxqmgp8u1h9qtscdvs6` (`sales_id`),
   KEY `FKddtxlc05rojc56bprvek17hnk` (`vehicle_type_id`),
   KEY `FK73a5q9b943p4a454o3yo3otbs` (`update_by`),
+  KEY `FKlk2hacgropq4q1d37m14g5gdj` (`agency_id`),
   CONSTRAINT `FK73a5q9b943p4a454o3yo3otbs` FOREIGN KEY (`update_by`) REFERENCES `admin` (`id`),
   CONSTRAINT `FKddtxlc05rojc56bprvek17hnk` FOREIGN KEY (`vehicle_type_id`) REFERENCES `vehicle_type` (`id`),
+  CONSTRAINT `FKlk2hacgropq4q1d37m14g5gdj` FOREIGN KEY (`agency_id`) REFERENCES `agency` (`id`),
   CONSTRAINT `FKn8ieqxvxqmgp8u1h9qtscdvs6` FOREIGN KEY (`sales_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -186,7 +216,7 @@ CREATE TABLE `vehicle` (
 
 LOCK TABLES `vehicle` WRITE;
 /*!40000 ALTER TABLE `vehicle` DISABLE KEYS */;
-INSERT INTO `vehicle` VALUES (1,'yellow',12,4,'2024-04-05',50,'Mitsubishi',500000,500,1,2,1),(2,'red',1,NULL,'2024-04-05',NULL,'Yamaha',50000,60,1,1,1),(3,'black',1,4,'2024-04-05',30,'Vinfast',600000,800,1,2,1);
+INSERT INTO `vehicle` VALUES (1,'yellow',12,4,'2024-04-05',50,'Mitsubishi',500000,500,1,2,1,1),(2,'red',1,NULL,'2024-04-05',NULL,'Yamaha',50000,60,1,1,1,2),(3,'black',1,4,'2024-04-05',30,'Vinfast',600000,800,1,2,1,1);
 /*!40000 ALTER TABLE `vehicle` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -235,4 +265,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-21 22:46:20
+-- Dump completed on 2024-04-22  9:34:58

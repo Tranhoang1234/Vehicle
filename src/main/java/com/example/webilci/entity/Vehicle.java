@@ -50,4 +50,10 @@ public class Vehicle {
     @ToString.Exclude
     private Admin updateBy;
 
+    @ManyToOne
+    @JoinColumn(name = "agency_id")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private Agency agency;
+
 }
